@@ -65,7 +65,7 @@
 
   /* ---------- scroll reveal ---------- */
   const groups = [
-    '.section .eyebrow', '.section-title', '.section-lead', '.work-card', '.app-feature', '.status', '.clink', '.marquee',
+    '.section .eyebrow', '.section-title', '.section-lead', '.work-card', '.app-feature', '.status', '.clink',
   ];
   const seen = new Set();
   const io = new IntersectionObserver(entries => {

@@ -44,14 +44,6 @@ nav a.on::after{width:100%!important}
 .reveal.in{opacity:1;animation:fxReveal .8s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:var(--d,0s)}
 @keyframes fxReveal{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
 
-/* ---------- Marquee ---------- */
-.marquee{overflow:hidden;border-block:1.5px solid var(--ink);background:var(--yellow);padding:14px 0;position:relative;z-index:2}
-.marquee-track{display:flex;width:max-content;animation:fxMarquee 34s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee span{font-family:'Bodoni Moda',serif;font-variation-settings:'opsz' 14;font-size:clamp(22px,3.4vw,38px);letter-spacing:-.02em;white-space:nowrap;padding:0 .5em;color:var(--ink)}
-.marquee span.s{color:var(--orange);font-size:.7em;align-self:center;padding:0 .3em}
-@keyframes fxMarquee{to{transform:translateX(-50%)}}
-
 /* ---------- Hover micro-interactions ---------- */
 .work-card{transform-style:preserve-3d;will-change:transform}
 .work-card.tilting{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translate(-4px,-4px)!important;transition:transform .12s ease-out,box-shadow .25s}
@@ -70,7 +62,6 @@ nav a.on::after{width:100%!important}
 @media (prefers-reduced-motion:reduce){
   .stage,nav,.blurb,.cta,.dot,#waves,.title.split i,.reveal.in{animation:none!important}
   .reveal{opacity:1}
-  .marquee-track{animation:none}
   .work-card.tilting{transform:none!important}
   #portrait.wiggle{animation:none}
 }
