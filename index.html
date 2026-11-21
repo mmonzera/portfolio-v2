@@ -70,16 +70,21 @@
 </head>
 <body>
 
-<section class="hero">
-  <svg id="waves" aria-hidden="true"></svg>
-
-  <nav>
-    <a class="brand" href="#home">moses wisnu</a>
+<nav id="siteNav" aria-label="Main">
+  <a class="brand" href="#home">moses wisnu</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="navLinks">
     <a href="#home">home</a>
     <a href="#works">works</a>
     <a href="#apps">apps</a>
     <a href="#contact">contact</a>
-  </nav>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <svg id="waves" aria-hidden="true"></svg>
+
+  
 
   <span class="dot blue" aria-hidden="true"></span>
   <span class="dot yellow" aria-hidden="true"></span>
