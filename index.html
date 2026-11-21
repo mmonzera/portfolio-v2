@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hello World — Portfolio</title>
+<title>Moses Wisnu Playground</title>
+<meta name="description" content="Moses Wisnu — product designer. Case studies and little apps.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Manrope:wght@300;400;800&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -39,7 +41,9 @@
   .stage svg#portrait{width:100%;height:100%;display:block;overflow:visible}
   .eye{transform-box:fill-box;transform-origin:center}
 
-  .title{position:absolute;left:50%;top:81%;transform:translate(-50%,-50%);white-space:nowrap;display:flex;align-items:baseline;font-size:clamp(56px,12vw,190px);line-height:1;pointer-events:none;z-index:3}
+  .title{position:absolute;left:50%;top:80%;transform:translate(-50%,-50%);white-space:nowrap;display:flex;flex-direction:column;align-items:center;gap:.1em;font-size:clamp(46px,10.5vw,168px);line-height:1;font-weight:400;pointer-events:none;z-index:3}
+  .title .l1{display:flex;align-items:baseline;gap:.12em}
+  .title .l2{font-family:'Manrope',sans-serif;font-weight:800;font-size:.2em;letter-spacing:.7em;margin-right:-.7em;text-transform:uppercase;color:var(--blue)}
   .title .a{font-family:'Bodoni Moda',serif;font-weight:400;letter-spacing:-.04em}
   .title .b{font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-.05em}
 
@@ -60,7 +64,7 @@
     .stage{height:auto;width:118vw;max-width:none}
     .blurb{max-width:170px;font-size:11px;background:rgba(255,255,255,.92);padding:8px 10px;border-radius:8px}
     .cta{background:rgba(255,255,255,.92);padding:4px 8px;border-radius:8px}
-    .title{top:-8%;font-size:clamp(48px,15vw,110px)}
+    .title{top:-8%;font-size:clamp(40px,14vw,96px)}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -311,9 +315,10 @@
       </g>
     </svg>
 
-    <div class="title">
-      <span class="a">hello</span><span class="b">world</span>
-    </div>
+    <h1 class="title">
+      <span class="l1"><span class="a">Moses</span><span class="b">Wisnu</span></span>
+      <span class="l2">Playground</span>
+    </h1>
   </div>
 
   <p class="blurb">Moses Wisnu is a product designer crafting clear, human digital products — from fintech platforms to little apps for himself.</p>
