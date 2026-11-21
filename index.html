@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hello World — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Manrope:wght@300;400;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/sections.css">
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#1a1b33;
+    --blue:#2147d8;
+    --orange:#ff5a1f;
+    --yellow:#ffb800;
+    --wave:#e6e6f0;
+    --skin:#ffeee4;
+    --skin-sh:#f6cdb9;
+    --hair:#1c1f3a;
+    --hair-hi:#4a5fd6;
+    --shirt:#f7f2e6;
+    --shirt-sh:#e6dcc6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;overflow-x:hidden}
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;isolation:isolate}
+  #waves{position:absolute;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none}
+  #waves path{fill:none;stroke:var(--wave);stroke-width:1.2;stroke-linecap:round}
+
+  nav{position:absolute;top:0;left:0;right:0;display:flex;justify-content:flex-end;gap:clamp(24px,4vw,56px);padding:28px clamp(20px,5vw,64px);z-index:5}
+  nav a{color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:.04em;position:relative;padding-bottom:2px}
+  nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--ink);transition:width .3s}
+  nav a:hover::after{width:100%}
+
+  .stage{position:relative;height:min(calc(100svh - 50px),880px);aspect-ratio:600/700;max-width:100vw}
+  .stage svg#portrait{width:100%;height:100%;display:block;overflow:visible}
+  .eye{transform-box:fill-box;transform-origin:center}
+
+  .title{position:absolute;left:50%;top:81%;transform:translate(-50%,-50%);white-space:nowrap;display:flex;align-items:baseline;font-size:clamp(56px,12vw,190px);line-height:1;pointer-events:none;z-index:3}
+  .title .a{font-family:'Bodoni Moda',serif;font-weight:400;letter-spacing:-.04em}
+  .title .b{font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-.05em}
+
+  .blurb{position:absolute;left:clamp(20px,5vw,64px);bottom:clamp(20px,5vh,56px);max-width:240px;font-size:12px;line-height:1.6;z-index:5}
+  .cta{position:absolute;right:clamp(20px,5vw,64px);bottom:clamp(20px,5vh,56px);font-family:'Bodoni Moda',serif;font-size:clamp(16px,1.6vw,22px);color:var(--ink);text-decoration:none;z-index:5;border-bottom:1px solid transparent;transition:border-color .25s}
+  .cta:hover{border-color:var(--ink)}
+
+  .dot{position:absolute;z-index:1;pointer-events:none}
+  .dot.blue{width:22px;height:22px;background:var(--blue);left:12%;top:20%;border-radius:60% 40% 55% 45%}
+  .dot.yellow{width:80px;height:34px;background:var(--yellow);left:62%;top:-6px;border-radius:0 0 60px 40px}
+
+  .sparkle{transform-box:fill-box;transform-origin:center;animation:twinkle 2.6s ease-in-out infinite}
+  .sparkle:nth-of-type(2){animation-delay:.9s}
+  .sparkle:nth-of-type(3){animation-delay:1.7s}
+  @keyframes twinkle{0%,100%{transform:scale(1) rotate(0);opacity:1}50%{transform:scale(.55) rotate(20deg);opacity:.6}}
+
+  @media (max-width:700px){
+    .stage{height:auto;width:118vw;max-width:none}
+    .blurb{max-width:170px;font-size:11px;background:rgba(255,255,255,.92);padding:8px 10px;border-radius:8px}
+    .cta{background:rgba(255,255,255,.92);padding:4px 8px;border-radius:8px}
+    .title{top:-8%;font-size:clamp(48px,15vw,110px)}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <svg id="waves" aria-hidden="true"></svg>
+
+  <nav>
+    <a class="brand" href="#home">moses wisnu</a>
+    <a href="#home">home</a>
+    <a href="#works">works</a>
+    <a href="#apps">apps</a>
+    <a href="#contact">contact</a>
+  </nav>
+
+  <span class="dot blue" aria-hidden="true"></span>
+  <span class="dot yellow" aria-hidden="true"></span>
+
+  <div class="stage">
+    <svg id="portrait" viewBox="0 0 600 700" role="img" aria-label="3D chibi-style self-portrait">
+      <defs>
+        <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stop-color="#e7ecff"/>
+          <stop offset="1" stop-color="#e7ecff" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="skinGrad" cx=".45" cy=".38" r=".7" fx=".4" fy=".3">
+          <stop offset="0" stop-color="#ffeadb"/>
+          <stop offset=".55" stop-color="#f8c8ab"/>
+          <stop offset="1" stop-color="#d9906d"/>
+        </radialGradient>
+        <radialGradient id="earGrad" cx=".5" cy=".4" r=".7">
+          <stop offset="0" stop-color="#f9cdb2"/>
+          <stop offset="1" stop-color="#d08664"/>
+        </radialGradient>
+        <linearGradient id="neckGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#c97f5e"/>
+          <stop offset=".55" stop-color="#eeb393"/>
+          <stop offset="1" stop-color="#f5c3a6"/>
+        </linearGradient>
+        <linearGradient id="hairBack" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#3b4166"/>
+          <stop offset="1" stop-color="#0e0f1c"/>
+        </linearGradient>
+        <linearGradient id="hairFront" x1="0" y1="0" x2=".3" y2="1">
+          <stop offset="0" stop-color="#4d5585"/>
+          <stop offset=".6" stop-color="#20223d"/>
+          <stop offset="1" stop-color="#121326"/>
+        </linearGradient>
+        <radialGradient id="eyeWhite" cx=".45" cy=".55" r=".6">
+          <stop offset=".6" stop-color="#ffffff"/>
+          <stop offset="1" stop-color="#dcdfea"/>
+        </radialGradient>
+        <radialGradient id="irisGrad" cx=".5" cy=".7" r=".65">
+          <stop offset="0" stop-color="#e0a86c"/>
+          <stop offset=".5" stop-color="#83492a"/>
+          <stop offset="1" stop-color="#22110a"/>
+        </radialGradient>
+        <radialGradient id="teeGrad" cx=".42" cy=".25" r=".85">
+          <stop offset="0" stop-color="#ffffff"/>
+          <stop offset=".6" stop-color="#eef0f6"/>
+          <stop offset="1" stop-color="#c9cfdf"/>
+        </radialGradient>
+        <linearGradient id="fadeGrad" gradientUnits="userSpaceOnUse" x1="0" y1="600" x2="0" y2="722">
+          <stop offset="0" stop-color="#fff"/>
+          <stop offset="1" stop-color="#000"/>
+        </linearGradient>
+        <mask id="bodyFade" maskUnits="userSpaceOnUse" x="-200" y="0" width="1000" height="900">
+          <rect x="-200" y="0" width="1000" height="900" fill="url(#fadeGrad)"/>
+        </mask>
+        <linearGradient id="ribGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffffff"/>
+          <stop offset="1" stop-color="#dde1ec"/>
+        </linearGradient>
+        <radialGradient id="blush" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stop-color="#ff7f6e" stop-opacity=".55"/>
+          <stop offset="1" stop-color="#ff7f6e" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="noseGrad" cx=".45" cy=".3" r=".75">
+          <stop offset="0" stop-color="#ffe0cd"/>
+          <stop offset="1" stop-color="#e2a07f"/>
+        </radialGradient>
+        <radialGradient id="lensGrad" cx=".35" cy=".3" r=".8">
+          <stop offset="0" stop-color="#ffffff" stop-opacity=".25"/>
+          <stop offset="1" stop-color="#b9c8ff" stop-opacity=".12"/>
+        </radialGradient>
+
+        <path id="faceShape" d="M150 300 C150 208 214 158 300 158 C386 158 450 208 450 300 C450 384 398 446 300 450 C202 446 150 384 150 300 Z"/>
+        <clipPath id="faceClip"><use href="#faceShape"/></clipPath>
+        <path id="frontHair" d="M152 270 C144 192 212 146 300 144 C388 146 456 192 448 270 L430 236 C420 222 408 214 396 212 L388 240 L372 206 L352 230 L332 200 L314 226 L294 198 L278 228 L254 204 L238 234 C224 216 206 214 192 222 L172 254 Z"/>
+        <clipPath id="clipL"><ellipse cx="242" cy="318" rx="34" ry="38"/></clipPath>
+        <clipPath id="clipR"><ellipse cx="358" cy="318" rx="34" ry="38"/></clipPath>
+      </defs>
+
+      <!-- soft backdrop light -->
+      <ellipse cx="300" cy="330" rx="290" ry="290" fill="url(#glow)"/>
+
+      <!-- sparkles -->
+      <g aria-hidden="true">
+        <path class="sparkle" d="M90 230 Q94 246 110 250 Q94 254 90 270 Q86 254 70 250 Q86 246 90 230 Z" fill="var(--orange)"/>
+        <path class="sparkle" d="M520 190 Q523 202 535 205 Q523 208 520 220 Q517 208 505 205 Q517 202 520 190 Z" fill="var(--blue)"/>
+        <path class="sparkle" d="M505 430 Q507 439 516 441 Q507 443 505 452 Q503 443 494 441 Q503 439 505 430 Z" fill="var(--yellow)"/>
+      </g>
+
+      <!-- ================= BODY ================= -->
+      <g id="body" transform="translate(0 -30)" mask="url(#bodyFade)">
+        <!-- inside back of the collar, seen behind the neck -->
+        <path d="M232 506 Q300 478 368 506 Q300 500 232 506 Z" fill="#aab1c6"/>
+        <path d="M232 506 Q300 478 368 506" fill="none" stroke="#c3c8d8" stroke-width="5" stroke-linecap="round"/>
+        <!-- neck -->
+        <path d="M272 420 L272 528 Q300 546 328 528 L328 420 Z" fill="url(#neckGrad)"/>
+        <path d="M272 516 Q300 536 328 516 L328 530 Q300 548 272 530 Z" fill="#c97b5b" opacity=".35"/>
+        <!-- white tee -->
+        <path d="M110 790 C112 640 156 548 228 506 Q300 560 372 506 C444 548 488 640 490 790 Z" fill="url(#teeGrad)" stroke="#b9bfd0" stroke-width="1.5"/>
+        <!-- rib collar hugging the neck -->
+        <path d="M240 503 Q300 542 360 503 L372 506 Q300 560 228 506 Z" fill="url(#ribGrad)" stroke="#c3c8d8" stroke-width="1.2" stroke-linejoin="round"/>
+        <path d="M228 507 Q300 561 372 507 Q300 574 228 513 Z" fill="#b9c0d3" opacity=".35"/>
+        <g fill="none" stroke="#c6cbdb" stroke-width="3" stroke-linecap="round" opacity=".7">
+          <path d="M180 600 C190 650 192 720 188 790"/>
+          <path d="M420 600 C410 650 408 720 412 790"/>
+          <path d="M320 600 C340 620 348 650 346 680"/>
+        </g>
+      </g>
+
+      <!-- ================= HEAD ================= -->
+      <g id="head">
+        <!-- back hair -->
+        <path d="M150 300 L126 268 L98 262 L124 238 L94 206 L132 200 L108 160 L154 168 L146 120 L188 140 L194 96 L230 128 L248 74 L274 118 L302 58 L318 112 L352 74 L362 122 L400 90 L404 140 L446 120 L436 168 L482 168 L458 206 L502 218 L462 244 L482 272 L448 270 L450 300 C440 240 380 196 300 196 C220 196 160 240 150 300 Z" fill="url(#hairBack)"/>
+        <!-- spike highlights -->
+        <g fill="none" stroke="#6a73a8" stroke-width="4" stroke-linecap="round" opacity=".55">
+          <path d="M246 92 L238 130"/><path d="M300 76 L294 120"/><path d="M350 92 L340 128"/>
+          <path d="M196 112 L200 146"/><path d="M398 108 L390 142"/><path d="M150 136 L170 164"/>
+          <path d="M440 136 L424 164"/><path d="M118 214 L146 216"/><path d="M482 222 L456 226"/>
+        </g>
+
+        <!-- ears -->
+        <ellipse cx="150" cy="322" rx="24" ry="34" fill="url(#earGrad)"/>
+        <ellipse cx="450" cy="322" rx="24" ry="34" fill="url(#earGrad)"/>
+        <path d="M146 304 C138 314 138 332 146 342" fill="none" stroke="#c4785a" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+        <path d="M454 304 C462 314 462 332 454 342" fill="none" stroke="#c4785a" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+
+        <!-- face -->
+        <use href="#faceShape" fill="url(#skinGrad)"/>
+        <g clip-path="url(#faceClip)">
+          <use href="#frontHair" transform="translate(4 14)" fill="#c97b5b" opacity=".45"/>
+          <!-- jaw ambient occlusion -->
+          <ellipse cx="300" cy="470" rx="150" ry="40" fill="#c97b5b" opacity=".18"/>
+        </g>
+
+        <!-- blush -->
+        <ellipse cx="206" cy="378" rx="34" ry="20" fill="url(#blush)"/>
+        <ellipse cx="394" cy="378" rx="34" ry="20" fill="url(#blush)"/>
+
+        <!-- brows -->
+        <g fill="#1a1b2e">
+          <path d="M196 262 C210 244 246 240 276 250 C280 252 280 262 274 262 C248 256 222 258 202 272 C194 276 190 268 196 262 Z"/>
+          <path d="M404 262 C390 244 354 240 324 250 C320 252 320 262 326 262 C352 256 378 258 398 272 C406 276 410 268 404 262 Z"/>
+        </g>
+        <!-- mole -->
+        <circle cx="295" cy="258" r="3.2" fill="#5a3529"/>
+
+        <!-- LEFT EYE -->
+        <g id="eyeL" class="eye">
+          <ellipse cx="242" cy="318" rx="34" ry="38" fill="url(#eyeWhite)"/>
+          <g clip-path="url(#clipL)">
+            <g id="irisL">
+              <circle cx="242" cy="320" r="24" fill="url(#irisGrad)"/>
+              <circle cx="242" cy="320" r="12" fill="#0b0604"/>
+              <ellipse cx="233" cy="309" rx="7" ry="8" fill="#fff"/>
+              <circle cx="251" cy="330" r="3.2" fill="#fff" opacity=".9"/>
+            </g>
+            <ellipse cx="242" cy="282" rx="42" ry="16" fill="#7d6b88" opacity=".28"/>
+          </g>
+          <path d="M207 316 A35 39 0 0 1 277 312" fill="none" stroke="#1a0f0c" stroke-width="5" stroke-linecap="round"/>
+          <path d="M210 300 L196 292" stroke="#1a0f0c" stroke-width="4" stroke-linecap="round"/>
+        </g>
+
+        <!-- RIGHT EYE -->
+        <g id="eyeR" class="eye">
+          <ellipse cx="358" cy="318" rx="34" ry="38" fill="url(#eyeWhite)"/>
+          <g clip-path="url(#clipR)">
+            <g id="irisR">
+              <circle cx="358" cy="320" r="24" fill="url(#irisGrad)"/>
+              <circle cx="358" cy="320" r="12" fill="#0b0604"/>
+              <ellipse cx="349" cy="309" rx="7" ry="8" fill="#fff"/>
+              <circle cx="367" cy="330" r="3.2" fill="#fff" opacity=".9"/>
+            </g>
+            <ellipse cx="358" cy="282" rx="42" ry="16" fill="#7d6b88" opacity=".28"/>
+          </g>
+          <path d="M393 316 A35 39 0 0 0 323 312" fill="none" stroke="#1a0f0c" stroke-width="5" stroke-linecap="round"/>
+          <path d="M390 300 L404 292" stroke="#1a0f0c" stroke-width="4" stroke-linecap="round"/>
+        </g>
+
+        <!-- nose -->
+        <ellipse cx="301" cy="384" rx="10" ry="4" fill="#b86d4f" opacity=".3"/>
+        <ellipse cx="300" cy="374" rx="15" ry="11" fill="url(#noseGrad)"/>
+        <ellipse cx="295" cy="369" rx="4" ry="2.6" fill="#fff" opacity=".7"/>
+
+        <!-- smirk -->
+        <path d="M266 404 Q296 424 328 404 Q334 400 337 393" fill="none" stroke="#7a3b2e" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M284 422 Q300 428 316 421" fill="none" stroke="#d98f70" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+        <circle cx="342" cy="404" r="3" fill="#d98f70" opacity=".6"/>
+
+        <!-- glasses: lenses -->
+        <circle cx="242" cy="322" r="54" fill="url(#lensGrad)"/>
+        <circle cx="358" cy="322" r="54" fill="url(#lensGrad)"/>
+        <!-- lens glare -->
+        <g stroke="#fff" stroke-linecap="round" fill="none" opacity=".5">
+          <path d="M206 344 L232 300" stroke-width="7"/>
+          <path d="M218 356 L238 322" stroke-width="2.5"/>
+          <path d="M322 344 L348 300" stroke-width="7"/>
+          <path d="M334 356 L354 322" stroke-width="2.5"/>
+        </g>
+        <!-- frames with a soft specular edge -->
+        <g fill="none" stroke-linecap="round">
+          <circle cx="242" cy="322" r="54" stroke="#121220" stroke-width="10"/>
+          <circle cx="358" cy="322" r="54" stroke="#121220" stroke-width="10"/>
+          <path d="M296 312 Q300 302 304 312" stroke="#121220" stroke-width="8"/>
+          <path d="M188 314 L156 304 M412 314 L444 304" stroke="#121220" stroke-width="8"/>
+          <path d="M198 296 A50 50 0 0 1 236 270" stroke="#7a80a3" stroke-width="2.5"/>
+          <path d="M314 296 A50 50 0 0 1 352 270" stroke="#7a80a3" stroke-width="2.5"/>
+        </g>
+        <g fill="#d7dae4">
+          <circle cx="200" cy="290" r="2.4"/><circle cx="206" cy="284" r="2.4"/>
+          <circle cx="400" cy="290" r="2.4"/><circle cx="394" cy="284" r="2.4"/>
+        </g>
+
+        <!-- front hair -->
+        <use href="#frontHair" fill="url(#hairFront)"/>
+        <!-- glossy sheen + strand highlights -->
+        <path d="M204 190 C244 166 340 160 392 184" fill="none" stroke="#9aa3d8" stroke-width="9" stroke-linecap="round" opacity=".5"/>
+        <path d="M240 178 C270 168 300 166 324 168" fill="none" stroke="#dfe4ff" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+        <g fill="none" stroke="#5c6596" stroke-width="3" stroke-linecap="round" opacity=".7">
+          <path d="M254 204 C252 190 258 178 270 170"/>
+          <path d="M332 200 C336 188 346 180 360 176"/>
+          <path d="M294 198 C294 186 298 178 306 172"/>
+          <path d="M396 212 C404 204 414 202 424 206"/>
+          <path d="M192 222 C190 210 196 198 206 192"/>
+        </g>
+        <!-- flyaways -->
+        <g fill="none" stroke="#1d1f36" stroke-width="2" stroke-linecap="round">
+          <path d="M248 74 C240 50 238 32 246 14"/>
+          <path d="M302 58 C308 38 320 24 338 16"/>
+          <path d="M146 120 C128 102 112 96 92 96"/>
+          <path d="M482 168 C500 156 514 152 532 154"/>
+        </g>
+      </g>
+    </svg>
+
+    <div class="title">
+      <span class="a">hello</span><span class="b">world</span>
+    </div>
+  </div>
+
+  <p class="blurb">Moses Wisnu is a product designer crafting clear, human digital products — from fintech platforms to little apps for himself.</p>
+  <a class="cta" href="#works">explore works</a>
+</section>
+
+<main>
+  <section class="section" id="works">
+    <p class="eyebrow">case studies</p>
+    <h2 class="section-title">selected <b>works</b></h2>
+    <p class="section-lead">Product design work from iDecision, a digital lending platform used by banks — research, strategy and shipped interfaces.</p>
+    <div class="works-grid" id="worksGrid"></div>
+  </section>
+
+  <section class="section" id="apps">
+    <p class="eyebrow">side projects</p>
+    <h2 class="section-title">little <b>apps</b></h2>
+    <p class="section-lead">Two apps I designed and built for myself — one for Android, one for Windows. Both are free and keep your data on your own device.</p>
+
+    <div class="apps-stack">
+      <!-- Bukmark -->
+      <article class="app-feature bukm" aria-labelledby="bukmH">
+        <div class="af-copy">
+          <div class="af-title"><img src="apps/bukmark/mascot.svg" alt="" width="52" height="52"><h3 id="bukmH">Bukmark</h3></div>
+          <p class="af-tag">Bookmark your favorites — with your own names.</p>
+          <p class="af-text">Save posts from TikTok, Instagram, YouTube Shorts, Threads, X and LinkedIn, give each one a nickname you'll remember, and find it again in a second.</p>
+          <ul class="af-list">
+            <li><b>Nicknames</b> — swap long titles for names you actually search for.</li>
+            <li><b>Collections</b> — colourful shelves for recipes, inspo, wishlists.</li>
+            <li><b>Instant search</b> — by nickname, account or collection.</li>
+            <li><b>No account</b> — everything lives on your phone; back up and move with one file.</li>
+          </ul>
+          <div class="af-meta">Android · free · no account · v1.2</div>
+          <div class="af-links">
+            <a class="btn-link primary" href="https://mmonzera.github.io/bukmark-landing/" target="_blank" rel="noopener noreferrer">view landing page ↗</a>
+            <a class="btn-link" href="https://mmonzera.github.io/bukmark-landing/Bukmark.apk">download APK</a>
+          </div>
+        </div>
+        <div class="af-shots" aria-label="Bukmark screenshots">
+          <img class="shot s1" src="apps/bukmark/home.jpg" alt="Bukmark home screen with collections and recently saved posts" loading="lazy">
+          <img class="shot s2" src="apps/bukmark/search.jpg" alt="Bukmark search screen" loading="lazy">
+          <img class="shot s3" src="apps/bukmark/coll.webp" alt="Bukmark collection detail" loading="lazy">
+        </div>
+      </article>
+
+      <!-- Pomeowdoro -->
+      <article class="app-feature pomo-f" aria-labelledby="pomoH">
+        <div class="af-copy">
+          <div class="af-title"><img class="px" src="apps/pomeowdoro/icon.png" alt="" width="52" height="52"><h3 id="pomoH">Pomeowdoro</h3></div>
+          <p class="af-tag">A Pomodoro timer with a cat.</p>
+          <p class="af-text">A tiny retro desktop timer that fits on one little screen. Start the clock, and a pixel cat naps, wakes and chases your cursor while you focus.</p>
+          <ul class="af-list">
+            <li><b>Focus cycles</b> — any length; click the digits and type 30 or 12:30.</li>
+            <li><b>A cat that plays</b> — hover the screen and it chases your cursor.</li>
+            <li><b>Focus music</b> — binaural beats, brown noise and rain.</li>
+            <li><b>Task paper</b> — a note that slides away as time runs out.</li>
+          </ul>
+          <div class="af-meta">Windows 10 / 11 · free · single .exe · no install</div>
+          <div class="af-links">
+            <a class="btn-link primary" href="https://mmonzera.github.io/pomeowdoro-landing/" target="_blank" rel="noopener noreferrer">view landing page ↗</a>
+            <a class="btn-link" href="https://mmonzera.github.io/pomeowdoro-landing/demo/app.html" target="_blank" rel="noopener noreferrer">try live demo ↗</a>
+            <a class="btn-link" href="https://github.com/mmonzera/pomeowdoro-landing/releases/latest/download/Pomeowdoro.exe">download .exe</a>
+          </div>
+        </div>
+        <div class="af-lcd" aria-hidden="true">
+          <div class="lcd">
+            <span class="lcd-top">FOCUS NOW</span>
+            <img class="px" src="apps/pomeowdoro/icon.png" alt="">
+            <span class="lcd-time">25:00</span>
+            <span class="lcd-btns"><i>−5</i><i>START</i><i>+5</i></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <svg class="c-deco d1" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 Q23 17 38 20 Q23 23 20 38 Q17 23 2 20 Q17 17 20 2Z" fill="#ff5a1f"/></svg>
+    <svg class="c-deco d2" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 Q23 17 38 20 Q23 23 20 38 Q17 23 2 20 Q17 17 20 2Z" fill="#2147d8"/></svg>
+
+    <div class="contact-grid">
+      <div class="contact-main">
+        <p class="eyebrow">say hi</p>
+        <h2 class="section-title">let's <b>talk</b></h2>
+        <p class="status"><i></i>open to new opportunities</p>
+        <p class="section-lead">Got a product to design, a team to join, or just want to say hi? Drop me a message.</p>
+
+      </div>
+
+      <aside class="contact-links" aria-label="Contact links">
+        <a class="clink primary" href="mailto:mosesww10@gmail.com">
+          <span class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <span class="ct"><b>Email me</b><small>mosesww10@gmail.com</small></span><span class="ca">↗</span>
+        </a>
+        <a class="clink" href="https://www.linkedin.com/in/moses-wisnu-1869b7165/" target="_blank" rel="noopener noreferrer">
+          <span class="ci"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 110-4.2 2.1 2.1 0 010 4.2zM7.1 20.5H3.6V9h3.5v11.5z"/></svg></span>
+          <span class="ct"><b>LinkedIn</b><small>Moses Wisnu</small></span><span class="ca">↗</span>
+        </a>
+        <a class="clink" href="https://github.com/mmonzera" target="_blank" rel="noopener noreferrer">
+          <span class="ci"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3z"/></svg></span>
+          <span class="ct"><b>GitHub</b><small>@mmonzera</small></span><span class="ca">↗</span>
+        </a>
+        <a class="clink" href="https://drive.google.com/file/d/1ctzUz2SgFfh8oBWYsbx27w8PsrGS94DZ/view" target="_blank" rel="noopener noreferrer">
+          <span class="ci"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z"/><path d="M14 3v5h5M12 11v6M9.5 14.5L12 17l2.5-2.5"/></svg></span>
+          <span class="ct"><b>Download CV</b><small>PDF · Google Drive</small></span><span class="ca">↗</span>
+        </a>
+      </aside>
+    </div>
+  </section>
+</main>
+<footer class="foot">© 2026 Moses Wisnu</footer>
+
+<script src="data/works.js"></script>
+<script src="js/sections.js"></script>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const svg  = document.getElementById('portrait');
+  const head = document.getElementById('head');
+  const eyes = [
+    { g: document.getElementById('eyeL'), iris: document.getElementById('irisL'), cx: 242, cy: 320, x: 0, y: 0 },
+    { g: document.getElementById('eyeR'), iris: document.getElementById('irisR'), cx: 358, cy: 320, x: 0, y: 0 },
+  ];
+  const MAX_X = 9, MAX_Y = 8;
+
+  /* ---------- wavy background lines ---------- */
+  const waves = document.getElementById('waves');
+  function drawWaves(){
+    const w = innerWidth, h = innerHeight;
+    waves.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    let s = 3; const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
+    let d = '';
+    const count = Math.round(w / 90);
+    for (let i = 0; i < count; i++) {
+      const x0 = (i / count) * w + (r() - .5) * 30;
+      const amp = 10 + r() * 16, f = .003 + r() * .003, ph = r() * 6.28;
+      const top = -20 + r() * h * .2, bot = h * (.7 + r() * .35);
+      let p = '';
+      for (let y = top; y <= bot; y += 14) {
+        const x = x0 + Math.sin(y * f * 6 + ph) * amp;
+        p += (p ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+      }
+      d += `<path d="${p}" opacity="${(.5 + r() * .5).toFixed(2)}"/>`;
+    }
+    waves.innerHTML = d;
+  }
+  drawWaves();
+  addEventListener('resize', drawWaves);
+
+  /* ---------- cursor tracking ---------- */
+  let mx = innerWidth / 2, my = innerHeight / 2, lastMove = -1e9;
+  const onMove = e => { mx = e.clientX; my = e.clientY; lastMove = performance.now(); };
+  addEventListener('pointermove', onMove, { passive: true });
+  addEventListener('pointerdown', onMove, { passive: true });
+
+  let headRot = 0, headX = 0, headY = 0;
+  const lerp = (a, b, t) => a + (b - a) * t;
+
+  function frame(now){
+    const m = svg.getScreenCTM();
+    if (!m) return requestAnimationFrame(frame);
+    let tx = mx, ty = my;
+    const r = svg.getBoundingClientRect();
+
+    if (!reduce && now - lastMove > 3500) {
+      tx = r.left + r.width  * (.5 + Math.sin(now / 1900) * .45);
+      ty = r.top  + r.height * (.45 + Math.sin(now / 1300 + 1) * .2);
+    }
+
+    const reach = Math.max(260, Math.min(innerWidth, innerHeight) * .45);
+    eyes.forEach(e => {
+      const sx = m.a * e.cx + m.e, sy = m.d * e.cy + m.f;
+      const dx = tx - sx, dy = ty - sy;
+      const dist = Math.hypot(dx, dy) || 1;
+      const k = Math.min(1, dist / reach);
+      e.x = lerp(e.x, (dx / dist) * k * MAX_X, .16);
+      e.y = lerp(e.y, (dy / dist) * k * MAX_Y, .16);
+      e.iris.setAttribute('transform', `translate(${e.x.toFixed(2)} ${e.y.toFixed(2)})`);
+    });
+
+    if (!reduce) {
+      const nx = Math.max(-1, Math.min(1, (tx - (r.left + r.width / 2)) / (innerWidth / 2)));
+      const ny = Math.max(-1, Math.min(1, (ty - (r.top + r.height / 2)) / (innerHeight / 2)));
+      headRot = lerp(headRot, nx * 1.8, .06);
+      headX   = lerp(headX,   nx * 4,   .06);
+      headY   = lerp(headY,   ny * 3,   .06);
+      head.setAttribute('transform', `translate(${headX.toFixed(2)} ${headY.toFixed(2)}) rotate(${headRot.toFixed(2)} 300 540)`);
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  /* ---------- blink ---------- */
+  function blink(){
+    eyes.forEach(e => e.g.style.transform = 'scaleY(.08)');
+    setTimeout(() => eyes.forEach(e => e.g.style.transform = ''), 120);
+  }
+  eyes.forEach(e => e.g.style.transition = 'transform .08s ease-in-out');
+  if (!reduce) (function loop(){ setTimeout(() => { blink(); if (Math.random() < .2) setTimeout(blink, 260); loop(); }, 2200 + Math.random() * 3500); })();
+})();
+</script>
+</body>
+</html>
