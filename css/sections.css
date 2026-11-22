@@ -151,28 +151,13 @@ footer.foot{padding:28px;text-align:center;font-size:12px;color:#6b6b80}
   #siteNav .nav-links a.on{color:var(--blue);background:#f4f7ff}
 }
 
-/* ---------- Pomeowdoro panel mock (matches the app's dark panel + green screen) ---------- */
+/* ---------- Pomeowdoro app screenshot ---------- */
 .pomo-f{background:#e8f3e6}
+.pomo-shot{display:block;width:min(560px,100%);height:auto;border-radius:20px;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);transition:transform .3s ease}
+.app-feature:hover .pomo-shot{transform:rotate(-1deg) scale(1.01)}
 .pomo-f .af-title h3{font-family:'Press Start 2P',monospace;font-size:clamp(18px,2.8vw,28px);letter-spacing:0;line-height:1.2;font-variation-settings:normal}
 .pomo-f .af-title h3 span{color:#2f9b57}
 .pomo-f .af-tag{color:#1f7a42}
 .pomo-f .af-list li::before{background:#8fe3a2}
 .pomo-f .af-links .btn-link.primary{background:var(--ink);color:#fff}
-.pp{width:min(420px,100%);background:#1a1e24;border:1px solid #2c333b;border-radius:22px;padding:14px;color:#cfd6d2;font-family:'Manrope',system-ui,sans-serif;box-shadow:0 18px 40px rgba(0,0,0,.45),0 0 0 1px rgba(143,227,162,.06)}
-.pp-tabs{display:flex;gap:8px}
-.pp-tabs span{flex:1;text-align:center;font-size:12px;font-weight:700;padding:9px 0;border-radius:99px;background:#242a31;color:#9aa4a0}
-.pp-tabs span.on{background:#2c4636;color:#8fe3a2}
-.pp-body{display:grid;grid-template-columns:1fr 1.05fr;gap:10px;margin-top:10px}
-.pp-tasks{background:#20252b;border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:8px;min-height:190px}
-.pp-seg{display:flex;gap:6px}
-.pp-seg span{flex:1;text-align:center;font-size:11px;font-weight:700;padding:6px 0;border-radius:99px;background:#2a3037;color:#9aa4a0}
-.pp-seg span.on{background:#2c4636;color:#8fe3a2}
-.pp-input{font-size:11px;color:#6f7975;background:#171b20;border:1px solid #2c333b;border-radius:10px;padding:8px 10px}
-.pp-tasks p{margin:auto 0 4px;text-align:center;font-size:11px;line-height:1.5;color:#6f7975}
-.pp-screen{position:relative;border-radius:16px;background:radial-gradient(120% 100% at 50% 0,#17301f,#0c1810);border:2px solid #05090a;box-shadow:inset 0 6px 16px rgba(0,0,0,.6);display:flex;flex-direction:column;align-items:center;padding:12px 8px;overflow:hidden}
-.pp-lbl{font-size:11px;color:#8fe3a2;opacity:.9}
-.pp-time{font-size:clamp(28px,4.4vw,38px);font-weight:300;color:#8fe3a2;text-shadow:0 0 16px rgba(143,227,162,.4);line-height:1.1;margin-top:2px}
-.pp-screen img{width:46%;margin-top:auto;image-rendering:pixelated;animation:catnap 3s steps(2) infinite}
-.pp-foot{margin:10px 2px 0;font-size:11px;color:#6f7975}
-.pp-foot i{font-style:normal;color:#9aa4a0}
-@media (prefers-reduced-motion:reduce){.pp-screen img{animation:none}}
+@media (prefers-reduced-motion:reduce){.pomo-shot{transition:none}}
