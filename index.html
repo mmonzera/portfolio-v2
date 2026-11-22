@@ -39,7 +39,7 @@
   nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--ink);transition:width .3s}
   nav a:hover::after{width:100%}
 
-  .stage{position:relative;height:min(calc(100svh - 50px),880px);aspect-ratio:600/700;max-width:100vw}
+  .stage{position:relative;height:720px;aspect-ratio:600/700;max-width:100vw}
   .stage svg#portrait{width:100%;height:100%;display:block;overflow:visible}
   .eye{transform-box:fill-box;transform-origin:center}
 
@@ -371,7 +371,7 @@
       <!-- Pomeowdoro -->
       <article class="app-feature pomo-f" aria-labelledby="pomoH">
         <div class="af-copy">
-          <div class="af-title"><img class="px" src="apps/pomeowdoro/icon.png" alt="" width="52" height="52"><h3 id="pomoH">Pomeowdoro</h3></div>
+          <div class="af-title"><img class="px" src="apps/pomeowdoro/icon.png" alt="" width="52" height="52"><h3 id="pomoH">Pomeow<span>doro</span></h3></div>
           <p class="af-tag">A focus island with a pixel cat.</p>
           <p class="af-text">A thin line at the top of your screen that opens into a small panel when you hover it: everything for a focus session, nothing else. A pixel cat naps while you focus and chases your cursor when you play.</p>
           <ul class="af-list">
@@ -389,11 +389,21 @@
           </div>
         </div>
         <div class="af-lcd" aria-hidden="true">
-          <div class="lcd">
-            <span class="lcd-top">FOCUS NOW</span>
-            <img class="px" src="apps/pomeowdoro/icon.png" alt="">
-            <span class="lcd-time">25:00</span>
-            <span class="lcd-btns"><i>−5</i><i>START</i><i>+5</i></span>
+          <div class="pp">
+            <div class="pp-tabs"><span class="on">Focus</span><span>Music</span><span>Shelf</span></div>
+            <div class="pp-body">
+              <div class="pp-tasks">
+                <div class="pp-seg"><span class="on">Today 0</span><span>All 0</span></div>
+                <div class="pp-input">What will you do?</div>
+                <p>Nothing due today. Add what you need to do.</p>
+              </div>
+              <div class="pp-screen">
+                <span class="pp-lbl">Session</span>
+                <span class="pp-time">25:00</span>
+                <img class="px" src="apps/pomeowdoro/cat.png" alt="">
+              </div>
+            </div>
+            <p class="pp-foot">Focusing on <i>Add a task first</i></p>
           </div>
         </div>
       </article>
