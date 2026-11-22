@@ -152,16 +152,12 @@ footer.foot{padding:28px;text-align:center;font-size:12px;color:#6b6b80}
 }
 
 /* ---------- Pomeowdoro panel mock (matches the app's dark panel + green screen) ---------- */
-.pomo-f{background:#12151a!important;color:#e7ece9;border-color:var(--ink)}
-.pomo-f .af-title h3{color:#fff;font-family:'Press Start 2P',monospace;font-size:clamp(18px,2.8vw,28px);letter-spacing:0;line-height:1.2;font-variation-settings:normal}
-.pomo-f .af-title h3 span{color:#8fe3a2;text-shadow:0 0 18px rgba(143,227,162,.45)}
-.pomo-f .af-tag{color:#8fe3a2}
-.pomo-f .af-text,.pomo-f .af-list,.pomo-f .af-meta{color:#a9b2ad}
-.pomo-f .af-list b{color:#fff}
-.pomo-f .af-list li::before{background:#8fe3a2;border-color:#8fe3a2}
-.pomo-f .af-links .btn-link{background:#1c2127;color:#fff;border-color:#3a434b}
-.pomo-f .af-links .btn-link:hover{box-shadow:3px 3px 0 #8fe3a2}
-.pomo-f .af-links .btn-link.primary{background:#d6242b;border-color:#d6242b;color:#fff}
+.pomo-f{background:#e8f3e6}
+.pomo-f .af-title h3{font-family:'Press Start 2P',monospace;font-size:clamp(18px,2.8vw,28px);letter-spacing:0;line-height:1.2;font-variation-settings:normal}
+.pomo-f .af-title h3 span{color:#2f9b57}
+.pomo-f .af-tag{color:#1f7a42}
+.pomo-f .af-list li::before{background:#8fe3a2}
+.pomo-f .af-links .btn-link.primary{background:var(--ink);color:#fff}
 .pp{width:min(420px,100%);background:#1a1e24;border:1px solid #2c333b;border-radius:22px;padding:14px;color:#cfd6d2;font-family:'Manrope',system-ui,sans-serif;box-shadow:0 18px 40px rgba(0,0,0,.45),0 0 0 1px rgba(143,227,162,.06)}
 .pp-tabs{display:flex;gap:8px}
 .pp-tabs span{flex:1;text-align:center;font-size:12px;font-weight:700;padding:9px 0;border-radius:99px;background:#242a31;color:#9aa4a0}
